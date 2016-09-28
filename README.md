@@ -1,3 +1,4 @@
+[[ https://media.giphy.com/media/mRB9PmJFOjAw8/giphy.gif | height = 100px ]]
 
 # INT-WAW Boilerplate
 
