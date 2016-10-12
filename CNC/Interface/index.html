@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html">
@@ -10,38 +11,72 @@
 
     <link rel="stylesheet" href="./design/index.css" />
     <link rel="stylesheet" href="./design/print.css" media="print" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 
     <title>WAW - Das beste Team</title>
-  </head>
-  <body>
-    <menu>
-      <li><a href="#status" tabindex="1" accesskey="o">Status</a></li>
-      <li><a href="#tasks" tabindex="1" accesskey="o">Tasks</a></li>
+</head>
+
+<body>
+    <menu class="navbar">
+        <header>
+            <h1><small>Navigation</small></h1>
+        </header>
+        <ul>
+            <li><a href="#status" tabindex="1" accesskey="o">Status</a></li>
+            <li><a href="#tasks" tabindex="1" accesskey="o">Tasks</a></li>
+        </ul>
     </menu>
 
-    <header>
-      <h1>My CNC web application</h1>
+    <header class="page-title">
+        <h1>My CNC web application</h1>
     </header>
 
-    <main>
-      <section id="status">
-        <table id="status-overview">
-          <thead>
+    <main class="content">
 
-          </thead>
-          <tbody>
 
-          </tbody>
-        </table>
-      </section>
+        <section id="status">
+            <header>
+                <h2>Status</h2>
+            </header>
 
-      <section id="tasks">
+            <table id="status-overview">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Marcel</td>
+                        <td>Herd</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Manuel</td>
+                        <td>Schwalm</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Fabian</td>
+                        <td>Munzinger</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-      </section>
+        <section id="tasks">
+            <header>
+                <h2>Tasks</h2>
+            </header>
+        </section>
     </main>
 
     <footer>
 
     </footer>
-  </body>
+</body>
+
 </html>
