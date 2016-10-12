@@ -114,13 +114,29 @@ header {
     padding-top: 2rem;
     padding-left: 3rem;
     padding-right: 3rem;
-    overflow: auto;
+    overflow-x: hidden;
     top: 100px;
-    right: 0;
+    right: 48px;
+    height: calc(100% - 75px - 96px);
 }
 
 section {
     margin-bottom: 3rem;
+
+}
+
+.content section {
+  margin-left: 200%;
+  position: absolute;
+  left: 3rem;
+  right: 0;
+}
+
+.content section:target {
+  -webkit-transition: margin-left 1s;
+  -o-transition: margin-left 1s;
+  transition: margin-left 1s;
+  margin-left: 0%;
 }
 
 
