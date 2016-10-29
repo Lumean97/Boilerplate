@@ -23,13 +23,15 @@
     }
     </script>
 
+    <script src="js/app.js"></script>
+
     <title>WAW - Das beste Team</title>
 </head>
 
 <body>
     <menu class="navbar">
         <header>
-            <h1><small>Navigation</small></h1>
+            <h1><small>Navigation</small></h1> <!-- I swear there's a reason for this -->
         </header>
         <ul>
             <li><a href="#status" class="navbar-link"
@@ -39,6 +41,9 @@
               onclick="toggleActive(this)"
               tabindex="1" accesskey="o">Tasks</a></li>
         </ul>
+        <footer>
+            <p>Built by Marcel Herd &amp; Manuel Schwalm 😁</p>
+        </footer>
     </menu>
 
     <header class="page-title">
@@ -57,26 +62,12 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Surname</th>
+                        <th>IP</th>
+                        <th>Task</th>
+                        <th>Workload</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Marcel</td>
-                        <td>Herd</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Manuel</td>
-                        <td>Schwalm</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Fabian</td>
-                        <td>Munzinger</td>
-                    </tr>
+                <tbody id="status-overview-body">
                 </tbody>
             </table>
         </section>

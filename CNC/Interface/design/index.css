@@ -87,9 +87,17 @@ th::selection {
 }
 
 .navbar ul li a.active {
-  background-color: #e7e7e7;
+  background-color: #d5d5d5;
   color: #333;
 }
+
+.navbar footer {
+    position: fixed;
+    bottom: 50px;
+    max-width: 200px;
+    padding-left: 40px;
+}
+
 
 @media (max-width: 1000px) {
     .navbar {
