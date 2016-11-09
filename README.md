@@ -24,5 +24,5 @@ Requires node.js
 
 ```
 npm install
-gulp watchify
+gulp watch
 ```
