@@ -180,8 +180,13 @@ tbody tr:hover {
 		cursor: pointer;
 }
 
-#status-overview tr:first-child() {
+#status-overview th:first-child,
+#status-overview th:last-child {
 		width: 30px;
+}
+
+#status-overview td:first-child {
+	text-align: center;
 }
 
 
