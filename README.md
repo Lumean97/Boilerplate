@@ -20,6 +20,8 @@
 
 ## Compiling the project
 
+### Frontend (CNC/Interface)
+
 Requires node.js
 
 ```
