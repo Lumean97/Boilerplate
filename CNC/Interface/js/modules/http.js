@@ -1,8 +1,8 @@
 (function(exports) {
 
-	let _fetch = function(method, uri) {
+	exports.get = function(uri) {
 		let request = new Request(uri, {
-			method: method,
+			method: 'GET',
 			mode: 'cors',
 			redirect: 'follow',
 			headers: new Headers({
@@ -13,11 +13,15 @@
 		return fetch(request);
 	}
 
-	exports.get = function(uri) {
-		return _fetch('GET', uri);
+	exports.post = function(uri, payload) {
+
 	}
 
-	exports.post = function(uri, payload) {
+	exports.patch = function(uri, payload) {
+
+	}
+
+	exports.delete = function(uri, id) {
 
 	}
 

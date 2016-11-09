@@ -13,15 +13,21 @@
 				tr.append(td);
 			}
 
+			let actions = document.createElement("td");
+			let id = tr.children[0].textContent;
+			actions.innerHTML = '<button class="btn-primary" onclick="toggle(' + id + ')">Toggle</button>';
+			tr.append(actions);
+
 			table.append(tr);
 		}
 	}
 
-	魚.http.get("http://botnet.artificial.engineering/api/Status").then(function(response) {
-		return response.json();
-	})
-	.then(function(json) {
-		createStatusTable(json);
+	魚.status.index(function(data) {
+		createStatusTable(data);
 	});
 
 })();
+
+function toggle(id) {
+	魚.status.update(id, true);
+}
