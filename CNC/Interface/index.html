@@ -2,86 +2,79 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html">
-    <meta name="author" content="Das beste Team">
-    <meta name="description" content="CNC web application view">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html">
+	<meta name="author" content="Das beste Team">
+	<meta name="description" content="CNC web application view">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="./design/index.css" />
-    <link rel="stylesheet" href="./design/print.css" media="print" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="./design/index.css" />
+	<link rel="stylesheet" href="./design/print.css" media="print" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 
-    <script>
-    function toggleActive(element) {
-      var elements = document.getElementsByClassName("navbar-link");
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].classList.remove("active");
-      }
-      element.classList.add("active");
-    }
-    </script>
+	<script>
+		function toggleActive(element) {
+			var elements = document.getElementsByClassName("navbar-link");
+			for (var i = 0; i < elements.length; i++) {
+				elements[i].classList.remove("active");
+			}
+			element.classList.add("active");
+		}
+	</script>
 
-    <script src="js/app.js"></script>
+	<script src="js/app.js"></script>
 
-    <title>WAW - Das beste Team</title>
+	<title>WAW - Das beste Team</title>
 </head>
 
 <body>
-    <menu class="navbar">
-        <header>
-            <h1><small>Navigation</small></h1> <!-- I swear there's a reason for this -->
-        </header>
-        <ul>
-            <li><a href="#status" class="navbar-link"
-              onclick="toggleActive(this)"
-              tabindex="1" accesskey="o">Status</a></li>
-            <li><a href="#tasks" class="navbar-link"
-              onclick="toggleActive(this)"
-              tabindex="1" accesskey="o">Tasks</a></li>
-        </ul>
-        <footer>
-            <p>Built by Marcel Herd &amp; Manuel Schwalm 😁</p>
-        </footer>
-    </menu>
+	<menu class="navbar">
+		<header>
+			<h1><small>Navigation</small></h1>
+			<!-- I swear there's a reason for this -->
+		</header>
+		<ul>
+			<li><a href="#status" class="navbar-link" onclick="toggleActive(this)" tabindex="1" accesskey="o">Status</a></li>
+			<li><a href="#tasks" class="navbar-link" onclick="toggleActive(this)" tabindex="1" accesskey="o">Tasks</a></li>
+		</ul>
+		<footer>
+			<p>Built by Marcel Herd &amp; Manuel Schwalm 😁</p>
+		</footer>
+	</menu>
 
-    <header class="page-title">
-        <h1>My CNC web application</h1>
-    </header>
+	<header class="page-title">
+		<h1>My CNC web application</h1>
+	</header>
 
-    <main class="content">
+	<main class="content">
 
+		<section id="status">
+			<header>
+				<h2>Status</h2>
+			</header>
 
-        <section id="status">
-            <header>
-                <h2>Status</h2>
-            </header>
+			<table id="status-overview">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>IP</th>
+						<th>Task</th>
+						<th>Workload</th>
+					</tr>
+				</thead>
+				<tbody id="status-overview-body">
+				</tbody>
+			</table>
+		</section>
 
-            <table id="status-overview">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>IP</th>
-                        <th>Task</th>
-                        <th>Workload</th>
-                    </tr>
-                </thead>
-                <tbody id="status-overview-body">
-                </tbody>
-            </table>
-        </section>
+		<section id="tasks">
+			<header>
+				<h2>Tasks</h2>
+			</header>
+		</section>
 
-        <section id="tasks">
-            <header>
-                <h2>Tasks</h2>
-            </header>
-        </section>
-    </main>
-
-    <footer>
-
-    </footer>
+	</main>
 </body>
 
 </html>

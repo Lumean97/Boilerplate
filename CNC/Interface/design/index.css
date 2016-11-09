@@ -1,33 +1,14 @@
-    /**************************************
-***** Global styles *******************
-**************************************/
-
 * {
-    margin: 0;
-    padding: 0;
+		margin: 0;
+		padding: 0;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+		font-family: 'Roboto', sans-serif;
 }
-
-/*
-h1::selection,
-h2::selection,
-h3::selection,
-p::selection,
-a::selection,
-span::selection,
-strong::selection,
-small::selection,
-td::selection,
-th::selection {
-  background-color: #e7e7e7;
-}
-*/
 
 *::selection {
-  background-color: #e7e7e7;
+		background-color: #e7e7e7;
 }
 
 
@@ -36,85 +17,84 @@ th::selection {
 **************************************/
 
 .navbar {
-    position: fixed;
-    width: 300px;
-    height: 100%;
-    background: #f8f8f8;
-    border-right: 1px solid #e7e7e7;
-    box-shadow: 1px 0 3px #c5c5c5;
-    z-index: 999;
+		position: fixed;
+		width: 300px;
+		height: 100%;
+		background: #f8f8f8;
+		border-right: 1px solid #e7e7e7;
+		box-shadow: 1px 0 3px #c5c5c5;
+		z-index: 999;
 }
 
 .navbar header {
-    padding-top: 2rem;
-    padding-left: 40px;
+		padding-top: 2rem;
+		padding-left: 40px;
 }
 
 .navbar header small {
-  font-size: 1.2rem;
+		font-size: 1.2rem;
 }
 
 .navbar ul {
-    display: block;
-    list-style: none;
+		display: block;
+		list-style: none;
 }
 
 .navbar ul li {
-    display: block;
-    border-bottom: 1px solid #e7e7e7;
+		display: block;
+		border-bottom: 1px solid #e7e7e7;
 }
 
 .navbar ul li:first-child {
-  border-top: 1px solid #e7e7e7;
+		border-top: 1px solid #e7e7e7;
 }
 
 .navbar ul li a {
-    display: block;
-    width: calc(100% - 40px);
-    height: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 40px;
-    color: #333;
-    text-decoration: none;
-    font-size: 1.3rem;
+		display: block;
+		width: calc(100% - 40px);
+		height: 100%;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		padding-left: 40px;
+		color: #333;
+		text-decoration: none;
+		font-size: 1.3rem;
 }
 
 .navbar ul li:hover {
-    background-color: #e7e7e7;
-    color: #333;
-    cursor: pointer;
+		background-color: #e7e7e7;
+		color: #333;
+		cursor: pointer;
 }
 
 .navbar ul li a.active {
-  background-color: #d5d5d5;
-  color: #333;
+		background-color: #d5d5d5;
+		color: #333;
 }
 
 .navbar footer {
-    position: fixed;
-    bottom: 50px;
-    max-width: 200px;
-    padding-left: 40px;
+		position: fixed;
+		bottom: 50px;
+		max-width: 200px;
+		padding-left: 40px;
 }
 
-
 @media (max-width: 1000px) {
-    .navbar {
-        width: 200px;
-    }
-    .content {
-        margin-left: -100px;
-    }
+		.navbar {
+				width: 200px;
+		}
+		.content {
+				margin-left: -100px;
+		}
 }
 
 @media (max-width: 600px) {
-    .navbar {
-        width: 150px;
-    }
-    .content {
-        margin-left: -150px;
-    }
+		.navbar {
+				width: 150px;
+		}
+		.content {
+				margin-left: -150px;
+		}
 }
 
 
@@ -123,52 +103,51 @@ th::selection {
 **************************************/
 
 header {
-    margin-bottom: 1.5rem;
+		margin-bottom: 1.5rem;
 }
 
 .page-title {
-  background-color: #f3f3f3;
-    border-bottom: 1px solid #e7e7e7;
-    height: 75px;
-    position: absolute;
-    left: 300px;
-    padding-top: 2rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    overflow: auto;
-    right: 0;
-    box-shadow: 0 1px 2px #d5d5d5;
+		background-color: #f3f3f3;
+		border-bottom: 1px solid #e7e7e7;
+		height: 75px;
+		position: absolute;
+		left: 300px;
+		padding-top: 2rem;
+		padding-left: 3rem;
+		padding-right: 3rem;
+		overflow: auto;
+		right: 0;
+		box-shadow: 0 1px 2px #d5d5d5;
 }
 
 .content {
-    position: absolute;
-    left: 300px;
-    padding-top: 2rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    overflow-x: hidden;
-    top: 100px;
-    right: 48px;
-    height: calc(100% - 75px - 96px);
+		position: absolute;
+		left: 300px;
+		padding-top: 2rem;
+		padding-left: 3rem;
+		padding-right: 3rem;
+		overflow-x: hidden;
+		top: 100px;
+		right: 48px;
+		height: calc(100% - 75px - 96px);
 }
 
 section {
-    margin-bottom: 3rem;
-
+		margin-bottom: 3rem;
 }
 
 .content section {
-  margin-left: 200%;
-  position: absolute;
-  left: 3rem;
-  right: 0;
+		margin-left: 200%;
+		position: absolute;
+		left: 3rem;
+		right: 0;
 }
 
 .content section:target {
-  -webkit-transition: margin-left 1s;
-  -o-transition: margin-left 1s;
-  transition: margin-left 1s;
-  margin-left: 0%;
+		-webkit-transition: margin-left 1s;
+		-o-transition: margin-left 1s;
+		transition: margin-left 1s;
+		margin-left: 0%;
 }
 
 
@@ -177,32 +156,32 @@ section {
 **************************************/
 
 table {
-    border: 1px solid #ddd;
-    border-spacing: 0;
-    border-collapse: collapse;
-    box-shadow: 1px 1px 3px #ccc;
-    width: 100%;
+		border: 1px solid #ddd;
+		border-spacing: 0;
+		border-collapse: collapse;
+		box-shadow: 1px 1px 3px #ccc;
+		width: 100%;
 }
 
 thead tr th {
-    border: 1px solid #ddd;
-    border-bottom-width: 2px;
-    padding: 1rem;
-    font-weight: 700;
+		border: 1px solid #ddd;
+		border-bottom-width: 2px;
+		padding: 1rem;
+		font-weight: 700;
 }
 
 tbody tr td {
-    border: 1px solid #ddd;
-    padding: .3rem 1rem;
+		border: 1px solid #ddd;
+		padding: .3rem 1rem;
 }
 
 tbody tr:hover {
-    background-color: #eee;
-    cursor: pointer;
+		background-color: #eee;
+		cursor: pointer;
 }
 
 #status-overview tr:first-child() {
-    width: 30px;
+		width: 30px;
 }
 
 
@@ -211,34 +190,35 @@ tbody tr:hover {
 **************************************/
 
 button {
-    display: inline-block;
-    padding: .5rem 1rem;
-    background-color: transparent;
-    border: 1px solid #333;
-    border-radius: .25rem;
-    color: #333;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: .9rem;
+		display: inline-block;
+		padding: .5rem 1rem;
+		background-color: transparent;
+		border: 1px solid #333;
+		border-radius: .25rem;
+		color: #333;
+		vertical-align: middle;
+		text-align: center;
+		cursor: pointer;
+		font-weight: 400;
+		font-size: .9rem;
 }
 
 .btn-primary {
-    border: 1px solid #0275d8;
-    color: #0275d8;
+		border: 1px solid #0275d8;
+		color: #0275d8;
 }
 
 .btn-primary:hover {
-    background-color: #0275d8;
-    color: #fff;
+		background-color: #0275d8;
+		color: #fff;
 }
 
 .btn-danger {
-    border: 1px solid #d9534f;
-    color: #d9534f;
+		border: 1px solid #d9534f;
+		color: #d9534f;
 }
 
 .btn-danger:hover {
-    background-color: #d9534f;
-    color: #fff;
+		background-color: #d9534f;
+		color: #fff;
+}
