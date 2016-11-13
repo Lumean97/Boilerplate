@@ -1,14 +1,25 @@
-import { status } from "./modules/status";
-import { tasks } from "./modules/tasks";
-import { buildTable } from "./modules/html";
+import "babel-polyfill";
 
-(function() {
-	status((data) => {
-		buildTable("status-overview-body", data, function(tr) {
-			let actions = document.createElement("td");
-			let id = tr.children[0].textContent;
-			actions.innerHTML = '<button class="btn-primary" onclick="toggle(' + id + ')">Toggle</button>';
-			tr.append(actions);
-		});
-	});
-})();
+import { ResourceController } from "./controller";
+
+import { route } from "./helpers/http";
+import { buildTasksTable, buildStatusTable } from "./helpers/html"
+
+{
+	let statusController = new ResourceController(route("status"));
+	let tasksController = new ResourceController(route("tasks"));
+
+	/*
+	tasksController.index()
+		.then(response => response.json())
+		.then(data => buildTasksTable(data));*/
+
+	statusController.index()
+		.then(response => response.json())
+		.then(data => buildStatusTable(data));
+
+	window.toggle = function(id, status) {
+		statusController.updateStatus(id, status);
+	}
+
+}

@@ -1,10 +1,9 @@
 export function get(uri) {
 	let request = new Request(uri, {
 		method: 'GET',
-		mode: 'cors',
-		redirect: 'follow',
+		mode: 'CORS',
 		headers: new Headers({
-			'Content-Type': 'text/plain'
+			'Content-Type': 'text/json'
 		})
 	});
 
