@@ -27,6 +27,11 @@ export function renderTasksTable() {
 		output.textContent = row.data.output;
 		tr.append(output);
 
+		let id = tr.children[0].textContent;
+		let actions = document.createElement("td");
+		actions.innerHTML = "<button class='btn btn-danger' onclick='deleteTask(" + id + ")'>Delete</button>";
+		tr.append(actions);
+
 		table.append(tr);
 	}
 }
