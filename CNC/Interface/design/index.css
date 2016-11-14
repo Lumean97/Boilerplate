@@ -83,6 +83,10 @@ body {
 		padding-left: 40px;
 }
 
+.navbar footer p {
+	padding-top: 2rem;
+}
+
 @media (max-width: 1000px) {
 		.navbar {
 				width: 200px;
@@ -130,10 +134,9 @@ header {
 		padding-top: 2rem;
 		padding-left: 3rem;
 		padding-right: 3rem;
-		overflow-x: hidden;
 		top: 100px;
 		right: 48px;
-		height: calc(100% - 75px - 96px);
+		height: calc(100% - 75px - 96px); /* xd */
 }
 
 section {
@@ -145,6 +148,8 @@ section {
 		position: absolute;
 		left: 3rem;
 		right: 0;
+		padding-top: 132px; /* it works on my PC xddd */
+		margin-top: -132px; /* I don't even care anymore at this point */
 }
 
 .content section:target {
