@@ -74,14 +74,15 @@
 				<h2>Tasks</h2>
 			</header>
 
-			<form onsubmit="event.preventDefault();createTask();">
-				<input type="text" name="input">
-				<select name="type">
+			<form>
+				<h3>Create new Task</h3>
+				<input type="text" id="input" placeholder="Input">
+				<select id="type">
 					<option value="hash-md5">MD5 Hash</option>
 					<option value="hash-sha256">SHA256 Hash</option>
 					<option value="crack-md5">Crack MD5</option>
 				</select>
-				<button type="submit">Create</button>
+				<button class="btn-default" onclick="createTask();">Create</button>
 			</form>
 
 			<table id="tasks-overview">

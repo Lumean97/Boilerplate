@@ -1,4 +1,4 @@
-import { app } from "../main";
+import { app, updateTasks } from "../main";
 
 import { post, del } from "./request";
 import { route } from "./http";
@@ -96,6 +96,26 @@ window.deleteTask = function (id) {
 			let index = findTaskIndexById(id);
 			app.tasks.splice(index, 1);
 			renderTasksTable();
+		}
+	});
+}
+
+window.createTask = function() {
+	console.log("lol");
+	let input = document.getElementById("input").value;
+	let type = document.getElementById("type").value;
+
+	let payload = JSON.stringify({
+		type: type,
+		data: {
+			input: input
+		}
+	});
+
+	post(route("tasks").uri, payload).then(function (response) {
+		if (response.status == 200) {
+			updateTasks();
+			document.getElementById("input").value = "(╯°□°）╯︵ ┻━┻";
 		}
 	});
 }

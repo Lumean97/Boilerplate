@@ -161,6 +161,30 @@ section {
 
 
 /**************************************
+***** Form styles *********************
+**************************************/
+
+.content section form {
+	margin-bottom: 2rem;
+}
+
+.content section form h3 {
+	margin-bottom: .8rem;
+}
+
+.content section form input,
+.content section form select {
+	display: inline-block;
+	padding: .5rem .75rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	vertical-align: middle;
+	font-size: 14px;
+	color: #555;
+}
+
+
+/**************************************
 ***** Table styles ********************
 **************************************/
 
@@ -225,6 +249,15 @@ button {
 .btn-primary:hover {
 		background-color: #0275d8;
 		color: #fff;
+}
+
+.btn-default {
+		border: 1px solid #ccc;
+		color: #333;
+}
+
+.btn-default:hover {
+		background-color: #e6e6e6;
 }
 
 .btn-danger {
