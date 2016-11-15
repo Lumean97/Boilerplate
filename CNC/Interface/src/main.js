@@ -21,6 +21,7 @@ export function updateStatus() {
 		.then(function(data) {
 			app.status = data;
 			renderStatusTable();
+			$("#status-overview").dataTable();
 		});
 }
 
@@ -30,9 +31,15 @@ export function updateTasks() {
 		.then(function(data) {
 			app.tasks = data;
 			renderTasksTable();
+
+			/* Dieser Moment, wenn nichts geht und nichts Sinn macht.. wait, gulp is not even running */
+			console.log("Hello"); // I'm keeping this as pet
+			$("#tasks-overview").dataTable();
 		});
 }
 
 window.setInterval(updateStatus, 100000);
 window.setInterval(updateTasks, 100000);
 
+window.updateTasks = updateTasks();
+window.updateStatus = updateStatus();
