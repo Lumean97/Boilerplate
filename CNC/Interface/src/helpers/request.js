@@ -22,3 +22,15 @@ export function post(uri, payload) {
 
 	return fetch(request);
 }
+
+export function del(uri) {
+	let request = new Request(uri, {
+		method: 'DELETE',
+		mode: 'CORS',
+		headers: new Headers({
+			'Content-Type': 'application/json'
+		})
+	});
+
+	return fetch(request);
+}

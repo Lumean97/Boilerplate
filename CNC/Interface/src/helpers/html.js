@@ -1,8 +1,8 @@
 import { app } from "../main";
 
-import { post } from "./request";
+import { post, del } from "./request";
 import { route } from "./http";
-import { findStatusById } from "./model";
+import { findStatusById, findTaskIndexById } from "./model";
 
 export function renderTasksTable() {
 	let table = document.getElementById("tasks-overview-body");
@@ -64,32 +64,38 @@ export function renderStatusTable() {
 }
 
 function buildToggleButton(id, status) {
-	if (! window.toggle) {
-		window.toggle = toggle;
-	}
-
 	if (! status)
 		return "<button class='btn btn-primary' onclick='toggle(" + id + "," + status + ")'>Start</button>";
 	return "<button class='btn btn-danger' onclick='toggle(" + id + "," + status + ")'>Stop</button>";
 }
 
-function toggle(id, status) {
-	console.log("Passed status (=current status): " + status);
+window.toggle = function (id, status) {
 	status = !status;
-	console.log("Post-toggle (= should be sent in request): " + status);
 
 	let payload = JSON.stringify({
 		id: id,
 		status: status
 	});
 
-	console.log(payload);
-
 	post(route("status").uri, payload).then(function (response) {
 		if (response.status == 200) {
 			let status = findStatusById(id);
 			status.workload = (status.workload == 1 ? 0 : 1);
 			renderStatusTable();
+		}
+	});
+}
+
+window.deleteTask = function (id) {
+	let uri = route("tasks").uri + id;
+
+	del(uri).then(function (response) {
+		// is actually 405 but meh
+
+		if (response.status == 200) {
+			let index = findTaskIndexById(id);
+			app.tasks.splice(index, 1);
+			renderTasksTable();
 		}
 	});
 }
