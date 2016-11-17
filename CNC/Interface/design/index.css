@@ -148,8 +148,8 @@ section {
 		position: absolute;
 		left: 3rem;
 		right: 0;
-		padding-top: 132px; /* it works on my PC xddd */
-		margin-top: -132px; /* I don't even care anymore at this point */
+		padding-top: 132px; /* it works on my PC xd */
+		margin-top: -132px; /* (╯°□°）╯︵ ┻━┻ */
 }
 
 .content section:target {
@@ -165,7 +165,15 @@ section {
 **************************************/
 
 .content section form {
-	margin-bottom: 2rem;
+	position: fixed;
+	top: 7px;
+	right: -1px;
+	z-index: 999999;
+	background-color: #fff;
+	border: 1px solid #e7e7e7;
+	border-radius: 4px;
+	padding: 10px;
+	opacity: .9; /* In case its covering anything ¯\_(ツ)_/¯ */
 }
 
 .content section form h3 {
