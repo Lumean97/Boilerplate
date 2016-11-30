@@ -6,7 +6,7 @@ export class ResourceController {
 		this.route = route;
 	}
 
-	index(callback) {
+	index() {
 		if (this.route.methods.includes('index')) {
 			return get(this.route.uri);
 		}
@@ -18,12 +18,6 @@ export class ResourceController {
 
 	update(resource) {
 
-	}
-
-	updateStatus(id, status) {
-		post(this.route.uri + id)
-			.then(response => response.json())
-			.then(data => console.log(data));
 	}
 
 	delete(resource) {

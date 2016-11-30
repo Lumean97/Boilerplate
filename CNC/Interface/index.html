@@ -11,6 +11,7 @@
 
 	<link rel="stylesheet" href="./design/index.css" />
 	<link rel="stylesheet" href="./design/print.css" media="print" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 
 	<script>
@@ -37,7 +38,9 @@
 			<li><a href="#tasks" class="navbar-link" onclick="toggleActive(this)" tabindex="1" accesskey="o">Tasks</a></li>
 		</ul>
 		<footer>
-			<p>Built by Marcel Herd &amp; Manuel Schwalm 😁</p>
+			<p><strong>"Optimized" for</strong> Chromium@1920x1080+</p>
+			<p>(ง ͠° ͟ل͜ ͡°)ง</p>
+			<p>Built by Marcel Herd &amp; Manuel Schwalm</p>
 		</footer>
 	</menu>
 
@@ -72,6 +75,17 @@
 				<h2>Tasks</h2>
 			</header>
 
+			<form>
+				<h3>Create new Task</h3>
+				<input type="text" id="input" placeholder="Input">
+				<select id="type">
+					<option value="hash-md5">MD5 Hash</option>
+					<option value="hash-sha256">SHA256 Hash</option>
+					<option value="crack-md5">Crack MD5</option>
+				</select>
+				<button class="btn-default" onclick="createTask();">Create</button>
+			</form>
+
 			<table id="tasks-overview">
 				<thead>
 					<tr>
@@ -89,6 +103,8 @@
 
 	</main>
 
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 	<script src="dist/app.min.js"></script>
 </body>
 
