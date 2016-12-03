@@ -1,21 +1,10 @@
-const express = require('express')
-const fs      = require('fs')
+const express = require('express');
 
-const app     = express()
+const app     = express();
 
-app.get('/', function (req, res) {
-  fs.readFile('tasks.json', 'utf-8', (err, data) => {
+require('./configuration')(app);
+require('./api')(app);
 
-    if (err) throw err
-
-    fs.writeFile('out.json', data, (err) => {
-      if (err) throw err
-    })
-    
-    res.send(data.toString('utf-8'))
-  })
-})
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+app.listen(8000, () => {
+  console.log('CNC Server is running on port 8000');
+});
