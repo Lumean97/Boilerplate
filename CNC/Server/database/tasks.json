@@ -1,0 +1,34 @@
+[
+   {
+      "id":0,
+      "type":"hash-md5",
+      "data":{
+         "input":"sample with output",
+         "output":"tuptuo htiw elpmas"
+      }
+   },
+   {
+      "id":1,
+      "type":"hash-md5",
+      "data":{
+         "input":"sample without output",
+         "output":"tuptuo tuohtiw elpmas hash-md5"
+      }
+   },
+   {
+      "id":2,
+      "type":"hash-md5",
+      "data":{
+         "input":"asdf",
+         "output":"fdsa hash-md5"
+      }
+   },
+   {
+      "id":3,
+      "type":"hash-md5",
+      "data":{
+         "input":"asdff",
+         "output":"ffdsa hash-md5"
+      }
+   }
+]

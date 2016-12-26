@@ -1,1 +1,1 @@
-export const API_URI = "http://botnet.artificial.engineering/api/";
+export const API_URI = "http://localhost:8000/api/";
