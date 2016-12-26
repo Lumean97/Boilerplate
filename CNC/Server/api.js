@@ -11,6 +11,20 @@ module.exports = function(app) {
 		});
 	});
 
+	router.get('/status/:id', (req, res) => {
+		fs.readFile('./database/status.json', 'utf-8', (error, data) => {
+			if (error) throw error;
+			let statuses = JSON.parse(data);
+			for (let status of statuses) {
+				if (status.id == req.params.id) {
+					res.send(status);
+					return;
+				}
+			}
+			res.json({ message: 'NOT OK' });
+		});
+	});
+
 	router.post('/status/', (req, res) => {
 		fs.readFile('./database/status.json', 'utf-8', (error, data) => {
 			if (error) throw error;
@@ -18,10 +32,9 @@ module.exports = function(app) {
 			for (let status of statuses) {
 				if (status.id == req.body.id) {
 					status.workload = (req.body.status ? 1 : 0);
-					fs.writeFile('./database/status.json', JSON.stringify(statuses), (err) => {
-						if (err) throw err;
-						res.json({ message: 'OK' });
-					});
+					fs.writeFileSync('./database/status.json', JSON.stringify(statuses));
+					res.json({ message: 'OK' });
+					return;
 				}
 			}
 			res.json({ message: 'NOT OK' });
@@ -42,6 +55,7 @@ module.exports = function(app) {
 			for (let task of tasks) {
 				if (task.id == req.params.id) {
 					res.send(task);
+					return;
 				}
 			}
 			res.json({ message: 'NOT OK' });
