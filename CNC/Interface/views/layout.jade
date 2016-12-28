@@ -2,8 +2,22 @@ doctype html
 html
 	head
 		title= "Das beste Team"
+
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(http-equiv='content-type', content='text/html')
+		meta(name='author', content='Das beste Team')
+		meta(name='description', content='CNC web application view')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+
+		script(src='https://code.jquery.com/jquery-1.12.4.min.js')
+		script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')
+
+		link(rel='prerender', href='/status')
+		link(rel='prerender', href='/tasks')
 	body
 		nav.navbar.navbar-default
 			div.container
