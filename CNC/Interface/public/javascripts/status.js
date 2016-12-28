@@ -1,5 +1,7 @@
 const api = '//localhost:8000/api/status';
 
+let dataTable = false;
+
 let statuses = {};
 
 function update() {
@@ -25,9 +27,42 @@ function render() {
 			$('<td>').text(item.ip),
 			$('<td>').text(item.task),
 			$('<td>').text(item.workload),
-			$('<td>').html('TODO')
+			$('<td>').html('<a class="btn btn-sm btn-default" onclick="toggle(' + item.id + ',' + item.workload + ')">Toggle</a>')
 		);
 		$('#table').append($tr);
+	});
+
+	if (! dataTable) {
+		$('#table').DataTable({
+			"paging": false,
+			"info": false
+		});
+		dataTable = true;
+	}
+}
+
+function toggle(id, workload) {
+	let status = (workload == 1 ? false : true); // new status
+
+	let payload = JSON.stringify({
+		id: id,
+		status: status
+	});
+
+	let request = new Request(api, {
+		method: 'POST',
+		mode: 'CORS',
+		body: payload,
+		headers: new Headers({
+			'Content-Type': 'application/json'
+		})
+	});
+
+	fetch(request).then((response) => {
+		if (response.status == 200) {
+			update();
+			render();
+		}
 	});
 }
 
