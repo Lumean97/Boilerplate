@@ -1,5 +1,7 @@
 const api = '//localhost:8000/api/tasks';
 
+let dataTable = false;
+
 let tasks = {};
 
 function update() {
@@ -30,6 +32,14 @@ function render() {
 		);
 		$('#table').append($tr);
 	});
+
+	if (! dataTable) {
+		$('#table').DataTable({
+			"paging": false,
+			"info": false
+		});
+		dataTable = true;
+	}
 }
 
 $('#create-task').submit((e) => {
