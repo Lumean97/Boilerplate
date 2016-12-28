@@ -1,33 +1,22 @@
 {
   "name": "cnc-interface",
-  "version": "0.2.0",
-  "description": "CNC web interface",
-  "main": "src/main.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "echo \"Use gulp bro\" && exit 1"
-  },
-  "devDependencies": {
-    "babel-preset-es2015": "^6.18.0",
-		"babel-preset-stage-0": "^6.1.2",
-		"babel-polyfill": "^6.16.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
-    "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^2.2.0",
-    "gulp-uglify": "^2.0.0",
-    "utils-merge": "^1.0.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lumean97/Boilerplate.git"
+    "start": "nodemon lib/index.js --exec babel-node --presets es2015,stage-2",
+    "build": "babel lib -d dist",
+    "serve": "node dist/index.js",
+    "test": "mocha --compilers js:babel-register"
   },
   "author": "Das beste Team",
-  "bugs": {
-    "url": "https://github.com/Lumean97/Boilerplate/issues"
-  },
-  "homepage": "https://github.com/Lumean97/Boilerplate#readme"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.11.0",
+    "babel-register": "^6.11.6",
+    "mocha": "^3.0.1",
+    "nodemon": "^1.10.0"
+  }
 }
