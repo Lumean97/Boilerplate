@@ -22,7 +22,6 @@ function update() {
 function render() {
 	$('tr:has(td)').remove();
 	$.each(tasks, (index, item) => {
-		console.log(item);
 		let $tr = $('<tr>').append(
 			$('<td>').text(item.id),
 			$('<td>').text(item.type),

@@ -11,20 +11,6 @@ module.exports = function(app) {
 		});
 	});
 
-	router.get('/status/:id', (req, res) => {
-		fs.readFile('./database/status.json', 'utf-8', (error, data) => {
-			if (error) throw error;
-			let statuses = JSON.parse(data);
-			for (let status of statuses) {
-				if (status.id == req.params.id) {
-					res.send(status);
-					return;
-				}
-			}
-			res.json({ message: 'NOT OK' });
-		});
-	});
-
 	router.post('/status/', (req, res) => {
 		fs.readFile('./database/status.json', 'utf-8', (error, data) => {
 			if (error) throw error;
@@ -41,10 +27,46 @@ module.exports = function(app) {
 		});
 	});
 
+	router.get('/status/:id', (req, res) => {
+		fs.readFile('./database/status.json', 'utf-8', (error, data) => {
+			if (error) throw error;
+			let statuses = JSON.parse(data);
+			for (let status of statuses) {
+				if (status.id == req.params.id) {
+					res.send(status);
+					return;
+				}
+			}
+			res.json({ message: 'NOT OK' });
+		});
+	});
+
 	router.get('/tasks/', (req, res) => {
 		fs.readFile('./database/tasks.json', 'utf-8', (error, data) => {
 			if (error) throw error;
 			res.send(data);
+		});
+	});
+
+	router.post('/tasks/', (req, res) => {
+		fs.readFile('./database/tasks.json', 'utf-8', (error, data) => {
+			if (error) throw error;
+			let tasks = JSON.parse(data);
+
+			let newTask = {
+				id: tasks.length,
+				type: req.body.type,
+				data: {
+					input: req.body.data.input,
+					output: (req.body.data.output ? req.body.data.output : null)
+				}
+			};
+			tasks.push(newTask);
+
+			fs.writeFile('./database/tasks.json', JSON.stringify(tasks), (err) => {
+				if (err) throw err;
+				res.json({ message: 'OK' });
+			});
 		});
 	});
 
