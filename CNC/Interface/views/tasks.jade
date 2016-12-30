@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	table#table.table.table-striped.table-bordered.table-hover
+		thead
+			tr
+				th ID
+				th Type
+				th Input
+				th Output
+				th Actions
+
+	form#create-task.form-inline
+		div.form-group
+			label.sr-only(for='task-input') Input
+			input#task-input.form-control(type='text', placeholder='Input')
+		div.form-group
+			label.sr-only(for='task-type') Type
+			select#task-type.form-control
+				option(value='hash-md5') MD5 Hash
+				option(value='hash-sha256') SHA256 Hash
+				option(value='crack-md5') Crack MD5
+		button.btn.btn-default(type='submit') Create
+
+	script(src='javascripts/tasks.js')
