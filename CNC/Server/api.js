@@ -37,7 +37,7 @@ module.exports = function(app) {
 					return;
 				}
 			}
-			res.json({ message: 'NOT OK' });
+			res.status(404).send('Not found');
 		});
 	});
 
@@ -80,7 +80,7 @@ module.exports = function(app) {
 					return;
 				}
 			}
-			res.json({ message: 'NOT OK' });
+			res.status(404).send('Not found');
 		});
 	});
 
@@ -88,6 +88,7 @@ module.exports = function(app) {
 		console.log('Received data', req.body);
 		//TODO
 		res.json({ message: 'Updating Task ' + req.params.id });
+		// Liefert message OK oder NOT OK
 	});
 
 	app.use('/api', router);
