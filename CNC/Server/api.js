@@ -49,6 +49,14 @@ module.exports = function(app) {
 	});
 
 	router.post('/tasks/', (req, res) => {
+		if (! req.body.data || ! req.body.data.input) {
+			res.status(400).send('Malformed data');
+		}
+
+		if (['hash-md5', 'hash-sha256', 'crack-md5'].indexOf(req.body.type) == -1) {
+			res.status(400).send('Invalid hash type');
+		}
+
 		fs.readFile('./database/tasks.json', 'utf-8', (error, data) => {
 			if (error) throw error;
 			let tasks = JSON.parse(data);
