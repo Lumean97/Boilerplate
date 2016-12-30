@@ -27,7 +27,10 @@ function render() {
 			$('<td>').text(item.ip),
 			$('<td>').text(item.task),
 			$('<td>').text(item.workload),
-			$('<td>').html('<a class="btn btn-sm btn-default" onclick="toggle(' + item.id + ',' + item.workload + ')">Toggle</a>')
+			$('<td>').html('<a class="btn btn-sm btn-default" ' +
+				'onclick="toggle(' + item.id + ',' + item.workload + ')">' +
+				(item.workload == 1 ? 'Stop' : 'Start') +
+				'</a>')
 		);
 		$('#table').append($tr);
 	});
