@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	div.controls
+		button.btn.btn-success
+			i.fa.fa-play(aria-hidden)
+			| Start
+		button.btn.btn-danger
+			i.fa.fa-pause(aria-hidden)
+			| Stop
+
+	table#table.table.table-striped.table-bordered.table-hover
+		thead
+			tr
+				th ID
+				th Type
+				th Input
+				th Output
+
+	script(src='javascripts/bots.js')

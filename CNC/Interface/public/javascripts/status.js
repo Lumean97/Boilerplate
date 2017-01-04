@@ -27,10 +27,13 @@ function render() {
 			$('<td>').text(item.ip),
 			$('<td>').text(item.task),
 			$('<td>').text(item.workload),
-			$('<td>').html('<a class="btn btn-sm btn-default" ' +
-				'onclick="toggle(' + item.id + ',' + item.workload + ')">' +
-				(item.workload == 1 ? 'Stop' : 'Start') +
-				'</a>')
+			(item.workload == 1 ?
+				$('<td>').html('<a class="btn btn-sm btn-danger" ' +
+				'onclick="toggle(' + item.id + ',' + item.workload + ')"><i class="fa fa-pause" aria-hidden></i>Stop</a>')
+			:
+				$('<td>').html('<a class="btn btn-sm btn-success" ' +
+				'onclick="toggle(' + item.id + ',' + item.workload + ')"><i class="fa fa-play" aria-hidden></i>Start</a>')
+			)
 		);
 		$('#table').append($tr);
 	});

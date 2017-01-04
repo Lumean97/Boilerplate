@@ -1,3 +1,17 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+.controls {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.controls button {
+	margin-right: 5px;
+}
+
+a i.fa,
+button i.fa {
+	padding-right: 5px;
+}
