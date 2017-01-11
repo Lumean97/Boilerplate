@@ -11,6 +11,18 @@ einsehbar.
 Diese werden bei Bekanntgabe im Kurs angepasst, so dass jeder auf
 dem gleichen Informationsstand ist.
 
+
+# Benutzung
+
+```bash
+cd /path/to/Boilerplate;
+
+sudo npm install -g eslint;
+
+eslint ./CNC;
+```
+
+
 # Meilensteine
 
 ![Overview Chart](./guides/asset/readme-overview.png)
