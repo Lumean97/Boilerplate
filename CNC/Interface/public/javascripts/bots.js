@@ -56,13 +56,13 @@ function toggle() {
 		$('td:last-child').html('<i class="fa fa-spinner fa-spin"></i>');
 
 		$.each(tasks, (index, item) => {
-			let api = (item.type !== 'hash-sha256' ? md5Api : sha256Api); // use md5 for crack-md5 and hash-md5
+			let api = (item.type != 'hash-sha256' ? md5Api : sha256Api); // use md5 for crack-md5 and hash-md5
 
 			let payload = JSON.stringify({
 				input: item.data.input
 			});
 
-			let request = new Request(md5Api, {
+			let request = new Request(api, {
 				method: 'POST',
 				body: payload,
 				headers: new Headers({
