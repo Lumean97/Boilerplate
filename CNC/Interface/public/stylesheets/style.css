@@ -16,3 +16,8 @@ a i.fa,
 button i.fa {
 	padding-right: 5px;
 }
+
+#create-task div,
+#create-task button {
+	margin-right: 5px;
+}
