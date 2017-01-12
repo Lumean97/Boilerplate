@@ -99,5 +99,9 @@ module.exports = function(app) {
 		// Liefert message OK oder NOT OK
 	});
 
+	router.post('/reports', (req, res) => {
+
+	});
+
 	app.use('/api', router);
 };

@@ -1,13 +1,14 @@
 extends layout
 
 block content
+	button.btn.btn-primary(onclick='update()')
+			i.fa.fa-refresh(aria-hidden)
+			| Refresh
 	div.controls
-		button.btn.btn-success
+		button.btn.btn-success(onclick='toggle()')
 			i.fa.fa-play(aria-hidden)
-			| Start
-		button.btn.btn-danger
-			i.fa.fa-pause(aria-hidden)
-			| Stop
+			| Resume
+
 
 	table#table.table.table-striped.table-bordered.table-hover
 		thead
@@ -16,5 +17,6 @@ block content
 				th Type
 				th Input
 				th Output
+				th Sync
 
 	script(src='javascripts/bots.js')

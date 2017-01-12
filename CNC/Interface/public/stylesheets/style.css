@@ -3,12 +3,13 @@ body {
 }
 
 .controls {
-	display: block;
+	display: inline-block;
 	margin-bottom: 20px;
 }
 
 .controls button {
 	margin-right: 5px;
+	margin-left: 5px;
 }
 
 a i.fa,
