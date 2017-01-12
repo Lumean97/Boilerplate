@@ -106,7 +106,11 @@ module.exports = function(app) {
 		if (req.get('Token') !== token) {
 			res.status(401).send('Bad Token');
 		} else {
-			// do things here
+
+			// logic here
+			res.send({
+				message: 'OK'
+			});
 		}
 	});
 

@@ -12,9 +12,6 @@ var bots = require('./routes/bots');
 
 var app = express();
 
-// api router
-require('./api')(app);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -34,6 +31,9 @@ app.use('/', index);
 app.use('/status', status);
 app.use('/tasks', tasks);
 app.use('/bots', bots);
+
+// api router
+require('./api')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
