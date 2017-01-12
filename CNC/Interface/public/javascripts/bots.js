@@ -71,7 +71,11 @@ function toggle() {
 				})
 			});
 
+			let jobsRunning = 0;
+
 			fetch(request).then((response) => response.text()).then((hash) => {
+				jobsRunning++;
+
 				let reportPayload = JSON.stringify({
 					id: item.id,
 					data: {
@@ -91,6 +95,8 @@ function toggle() {
 				});
 
 				fetch(reportRequest).then((response) => response.json()).then((data) => {
+					jobsRunning--;
+
 					if (data.message == 'OK') {
 						item.sync = '<span style="color:green;">OK</span>';
 						item.data.output = hash;
@@ -99,20 +105,19 @@ function toggle() {
 					}
 
 					render();
+
+					// At least it works ¯\_(ツ)_/¯
+					if (jobsRunning <= 0) {
+						$('.controls').html('<button class="btn btn-success" onclick="toggle()"><i class="fa fa-play" aria-hidden /> Resume</button>');
+					}
 				});
 			});
-
-			// send POST to /api/Reports (id, data.output)
-			// update last column with response
 		});
 	} else {
 		$('.controls').html('<button class="btn btn-success" onclick="toggle()"><i class="fa fa-play" aria-hidden /> Resume</button>');
-		$('td:last-child').html('');
+		let newHtml = $('td:last-child').html() == '<i class="fa fa-spinner fa-spin"></i>' ? '' : $('td:last-child').html();
+		$('td:last-child').html(newHtml);
 	}
-}
-
-function getMD5Request() {
-	return new Request(cryptoApi + 'md5')
 }
 
 update();
