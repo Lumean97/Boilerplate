@@ -60,7 +60,8 @@ function toggle(id, workload) {
 		mode: 'CORS',
 		body: payload,
 		headers: new Headers({
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'Token': 'Idgz1PE3zO9iNc0E3oeH3CHDPX9MzZe3'
 		})
 	});
 
