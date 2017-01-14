@@ -16,6 +16,7 @@ module.exports = function(app) {
 	router.post('/status/', (req, res) => {
 		if (req.get('Token') !== token) {
 			res.status(401).send('Bad Token');
+			return;
 		} else {
 			fs.readFile('./database/status.json', 'utf-8', (error, data) => {
 				if (error) throw error;
@@ -57,13 +58,16 @@ module.exports = function(app) {
 	router.post('/tasks/', (req, res) => {
 		if (req.get('Token') !== token) {
 			res.status(401).send('Bad Token');
+			return;
 		} else {
-			if (! req.body.data || ! req.body.data.input) {
+			if (! req.body.data || ! req.body.data.input || ! req.body.type) {
 				res.status(400).send('Malformed data');
+				return;
 			}
 
 			if (['hash-md5', 'hash-sha256', 'crack-md5'].indexOf(req.body.type) == -1) {
 				res.status(400).send('Invalid hash type');
+				return;
 			}
 
 			fs.readFile('./database/tasks.json', 'utf-8', (error, data) => {
@@ -105,11 +109,34 @@ module.exports = function(app) {
 	router.post('/reports', (req, res) => {
 		if (req.get('Token') !== token) {
 			res.status(401).send('Bad Token');
+			return;
 		} else {
+			if (req.body.data === undefined || req.body.data.output === undefined || req.body.id === undefined) {
+				res.status(400).send('Malformed data');
+				return;
+			}
 
-			// logic here
-			res.send({
-				message: 'OK'
+			fs.readFile('./database/tasks.json', 'utf-8', (error, data) => {
+				if (error) throw error;
+				let tasks = JSON.parse(data);
+				for (let task of tasks) {
+					if (task.id == req.body.id) {
+						if (task.data.output === null) {
+							console.log('OLD: ' + task.data.output + ', NEW: ' + req.body.data.output);
+							task.data.output = req.body.data.output;
+							fs.writeFileSync('./database/tasks.json', JSON.stringify(tasks));
+							res.send({
+								message: 'OK'
+							});
+							return;
+						} else {
+							res.send({
+								message: 'NOT OK'
+							});
+							return;
+						}
+					}
+				}
 			});
 		}
 	});
