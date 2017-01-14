@@ -17,5 +17,18 @@
     "serve-favicon": "~2.3.0",
     "bootstrap": "~3.3.7",
     "font-awesome": "~4.7.0"
+  },
+  "node-main": "./bin/www",
+	"main": "http://localhost:3000",
+	"nodejs": true,
+	"window": {
+    "title": "CNC Interface",
+    "frame": true,
+    "show": true,
+    "width": 1920,
+    "height": 1080,
+    "position": "center",
+    "min_width": 1024,
+    "min_height": 768
   }
 }
