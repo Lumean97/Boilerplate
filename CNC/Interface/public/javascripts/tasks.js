@@ -4,7 +4,7 @@ let dataTable = false;
 
 let tasks = {};
 
-function update() {
+let update = function() {
 	let request = new Request(api, {
 		method: 'GET',
 		mode: 'CORS',
@@ -17,9 +17,9 @@ function update() {
 		tasks = data;
 		render();
 	});
-}
+};
 
-function render() {
+let render = function() {
 	$('tr:has(td)').remove();
 	$.each(tasks, (index, item) => {
 		let $tr = $('<tr>').append(
@@ -32,14 +32,14 @@ function render() {
 		$('#table').append($tr);
 	});
 
-	if (! dataTable) {
+	if (!dataTable) {
 		$('#table').DataTable({
 			"paging": false,
 			"info": false
 		});
 		dataTable = true;
 	}
-}
+};
 
 $('#create-task').submit((e) => {
 	e.preventDefault();
@@ -65,7 +65,7 @@ $('#create-task').submit((e) => {
 	});
 
 	fetch(request).then((response) => {
-		if (response.status == 200) {
+		if (response.status === 200) {
 			update();
 			render();
 		}

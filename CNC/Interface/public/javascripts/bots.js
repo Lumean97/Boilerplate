@@ -8,7 +8,7 @@ let running = false;
 
 let tasks = {};
 
-function update() {
+let update = function() {
 	if (running) toggle();
 
 	let request = new Request(api, {
@@ -23,9 +23,9 @@ function update() {
 		tasks = data;
 		render();
 	});
-}
+};
 
-function render() {
+let render = function() {
 	$('tr:has(td)').remove();
 	$.each(tasks, (index, item) => {
 		let $tr = $('<tr>').append(
@@ -38,7 +38,7 @@ function render() {
 		$('#table').append($tr);
 	});
 
-	if (! dataTable) {
+	if (!dataTable) {
 		$('#table').DataTable({
 			"paging": false,
 			"info": false,
@@ -46,9 +46,9 @@ function render() {
 		});
 		dataTable = true;
 	}
-}
+};
 
-function toggle() {
+let toggle = function() {
 	running = !running;
 
 	if (running) {
@@ -56,7 +56,7 @@ function toggle() {
 		$('td:last-child').html('<i class="fa fa-spinner fa-spin"></i>');
 
 		$.each(tasks, (index, item) => {
-			let api = (item.type != 'hash-sha256' ? md5Api : sha256Api); // use md5 for crack-md5 and hash-md5
+			let api = (item.type !== 'hash-sha256' ? md5Api : sha256Api); // use md5 for crack-md5 and hash-md5
 
 			let payload = JSON.stringify({
 				input: item.data.input
@@ -97,7 +97,7 @@ function toggle() {
 				fetch(reportRequest).then((response) => response.json()).then((data) => {
 					jobsRunning--;
 
-					if (data.message == 'OK') {
+					if (data.message === 'OK') {
 						item.sync = '<span style="color:green;">OK</span>';
 						item.data.output = hash;
 					} else {
@@ -115,9 +115,9 @@ function toggle() {
 		});
 	} else {
 		$('.controls').html('<button class="btn btn-success" onclick="toggle()"><i class="fa fa-play" aria-hidden /> Resume</button>');
-		let newHtml = $('td:last-child').html() == '<i class="fa fa-spinner fa-spin"></i>' ? '' : $('td:last-child').html();
+		let newHtml = $('td:last-child').html() === '<i class="fa fa-spinner fa-spin"></i>' ? '' : $('td:last-child').html();
 		$('td:last-child').html(newHtml);
 	}
-}
+};
 
 update();

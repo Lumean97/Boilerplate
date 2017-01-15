@@ -1,5 +1,4 @@
 const express = require('express');
-const fs			= require('fs');
 
 const token   = 'Idgz1PE3zO9iNc0E3oeH3CHDPX9MzZe3';
 
@@ -14,7 +13,7 @@ module.exports = function(app) {
 		if (req.get('Token') !== token) {
 			res.status(401).send('Bad Token');
 		} else {
-			let status = app.cache.statuses.find((item) => item.id == req.body.id);
+			let status = app.cache.statuses.find((item) => item.id === parseInt(req.body.id));
 
 			if (status === undefined) {
 				res.status(404).send('Not found');
@@ -26,7 +25,7 @@ module.exports = function(app) {
 	});
 
 	router.get('/status/:id', (req, res) => {
-		let status = app.cache.statuses.find((item) => item.id == req.params.id);
+		let status = app.cache.statuses.find((item) => item.id === parseInt(req.params.id));
 
 		if (status === undefined) {
 			res.status(404).send('Not found');
@@ -42,9 +41,9 @@ module.exports = function(app) {
 	router.post('/tasks/', (req, res) => {
 		if (req.get('Token') !== token) {
 			res.status(401).send('Bad Token');
-		} else if (! req.body.data || ! req.body.data.input || ! req.body.type) {
+		} else if (!req.body.data || !req.body.data.input || !req.body.type) {
 			res.status(400).send('Malformed data');
-		} else if (['hash-md5', 'hash-sha256', 'crack-md5'].indexOf(req.body.type) == -1) {
+		} else if ([ 'hash-md5', 'hash-sha256', 'crack-md5' ].indexOf(req.body.type) === -1) {
 			res.status(400).send('Invalid hash type');
 		} else {
 			let newTask = {
@@ -61,7 +60,7 @@ module.exports = function(app) {
 	});
 
 	router.get('/tasks/:id', (req, res) => {
-		let task = app.cache.tasks.find((item) => item.id == req.params.id);
+		let task = app.cache.tasks.find((item) => item.id === parseInt(req.params.id));
 
 		if (task === undefined) {
 			res.status(404).send('Not found');
@@ -76,7 +75,7 @@ module.exports = function(app) {
 		} else if (req.body.data === undefined || req.body.data.output === undefined || req.body.id === undefined) {
 			res.status(400).send('Malformed data');
 		} else {
-			let task = app.cache.tasks.find((item) => item.id == req.body.id);
+			let task = app.cache.tasks.find((item) => item.id === parseInt(req.body.id));
 			if (task.data.output === null) {
 				task.data.output = req.body.data.output;
 				res.send({ message: 'OK' });

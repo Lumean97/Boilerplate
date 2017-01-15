@@ -4,7 +4,7 @@ let dataTable = false;
 
 let statuses = {};
 
-function update() {
+let update = function() {
 	let request = new Request(api, {
 		method: 'GET',
 		mode: 'CORS',
@@ -17,9 +17,9 @@ function update() {
 		statuses = data;
 		render();
 	});
-}
+};
 
-function render() {
+let render = function() {
 	$('tr:has(td)').remove();
 	$.each(statuses, (index, item) => {
 		let $tr = $('<tr>').append(
@@ -27,28 +27,25 @@ function render() {
 			$('<td>').text(item.ip),
 			$('<td>').text(item.task),
 			$('<td>').text(item.workload),
-			(item.workload == 1 ?
-				$('<td>').html('<a class="btn btn-sm btn-danger" ' +
-				'onclick="toggle(' + item.id + ',' + item.workload + ')"><i class="fa fa-pause" aria-hidden></i>Stop</a>')
-			:
-				$('<td>').html('<a class="btn btn-sm btn-success" ' +
+			(item.workload === 1 ? $('<td>').html('<a class="btn btn-sm btn-danger" ' +
+				'onclick="toggle(' + item.id + ',' + item.workload + ')"><i class="fa fa-pause" aria-hidden></i>Stop</a>') : $('<td>').html('<a class="btn btn-sm btn-success" ' +
 				'onclick="toggle(' + item.id + ',' + item.workload + ')"><i class="fa fa-play" aria-hidden></i>Start</a>')
 			)
 		);
 		$('#table').append($tr);
 	});
 
-	if (! dataTable) {
+	if (!dataTable) {
 		$('#table').DataTable({
 			"paging": false,
 			"info": false
 		});
 		dataTable = true;
 	}
-}
+};
 
-function toggle(id, workload) {
-	let status = (workload == 1 ? false : true); // new status
+window.toggle = function(id, workload) {
+	let status = (workload === 1 ? false : true); // new status
 
 	let payload = JSON.stringify({
 		id: id,
@@ -66,12 +63,12 @@ function toggle(id, workload) {
 	});
 
 	fetch(request).then((response) => {
-		if (response.status == 200) {
+		if (response.status === 200) {
 			update();
 			render();
 		}
 	});
-}
+};
 
 update();
 
